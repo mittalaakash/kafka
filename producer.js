@@ -1,4 +1,4 @@
-const { Kafka } = require('kafka');
+const { Kafka } = require('kafkajs');
 
 const kafka = new Kafka({
   clientId: 'my-producer',
@@ -11,7 +11,9 @@ const run = async () => {
   //producing
   await producer.connect();
   await producer.send({
-    topic: 'frutis',
-    messages: [{ value: 'mango' }],
+    topic: 'testing',
+    messages: [{ value: 'dedfault' }],
   });
 };
+
+run().catch(console.error);
