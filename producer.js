@@ -1,4 +1,5 @@
 const { Kafka } = require('kafkajs');
+const getRandomFruitsName = require('random-fruits-name');
 
 const kafka = new Kafka({
   clientId: 'my-producer',
@@ -6,14 +7,14 @@ const kafka = new Kafka({
 });
 
 const producer = kafka.producer();
+const topic = 'fruits';
+
+const produceMessage = async () => {};
 
 const run = async () => {
   //producing
   await producer.connect();
-  await producer.send({
-    topic: 'testing',
-    messages: [{ value: 'dedfault' }],
-  });
+  setInterval(produceMessage, 1000);
 };
 
 run().catch(console.error);
