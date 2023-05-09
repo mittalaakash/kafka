@@ -9,7 +9,16 @@ const kafka = new Kafka({
 const producer = kafka.producer();
 const topic = 'fruits';
 
-const produceMessage = async () => {};
+const produceMessage = async () => {
+  const value = getRandomFruitsName();
+  console.log('fruits ', value);
+  try {
+    await producer.send({
+      topic,
+      messages: [{ value }],
+    });
+  } catch (error) {}
+};
 
 const run = async () => {
   //producing
